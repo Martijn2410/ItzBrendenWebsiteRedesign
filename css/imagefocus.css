@@ -1,0 +1,45 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.thumbnail {
+  width: 100%;
+  display: block;
+  border-radius: 0.5em;
+}
+/* .thumbnail:hover {
+  transform: scale(1.03);
+} */
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  backdrop-filter: blur(10px); /* 🎯 This is the blur effect */
+  -webkit-backdrop-filter: blur(6px); /* for Safari */
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  z-index: 100;
+}
+
+.imageClose {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
