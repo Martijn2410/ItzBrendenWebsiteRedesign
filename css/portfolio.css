@@ -1,7 +1,5 @@
 :root {
-  --blur-amount: 50px;
-  --border-radius: 50px;
-  --like-clr: #b7c4ff;
+  --like-clr: #ffd000;
 }
 
 body {
@@ -85,7 +83,6 @@ main {
 .image-containerNoEffect:nth-child(1) {
   animation-delay: 0s;
 }
-
 
 .thumbnail {
   width: 100%;
@@ -171,6 +168,23 @@ main {
     columns: 2;
   }
     
+}
+
+@media only screen and (min-width: 911px) {
+  .portfolio-page .header::before {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    border-radius: calc(var(--border-radius) + 70px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    will-change: opacity;
+  }
+
+  .portfolio-page .header.is-overlapping::before {
+    opacity: 1;
+  }
 }
 
 @media only screen and (max-width: 910px) {
