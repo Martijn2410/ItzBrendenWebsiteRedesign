@@ -19,6 +19,7 @@
 body {
     margin: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -78,10 +79,10 @@ h1 {
     text-shadow: 0px 0px 5px black;
 }
 
-h2{
+h2 {
     font-size: 25px;
     color: white;
-    text-shadow: 0px 0px 5px black; 
+    text-shadow: 0px 0px 5px black;
 }
 
 .img-logo {
@@ -98,7 +99,8 @@ h2{
 .container {
     width: fit-content;
     padding: 8px 12px;
-    height: 400px; /* 1. Replaced 'auto' with a fixed height */
+    height: 400px;
+    /* 1. Replaced 'auto' with a fixed height */
     margin: 200px auto;
     justify-content: center;
     align-items: center;
@@ -109,7 +111,8 @@ h2{
     width: 100%;
     /* aspect-ratio: 4 / 5;  <-- 2. REMOVE THIS so height stops changing based on width */
     padding: 0;
-    height: 61vh; /* 3. Replaced 'auto' with a fixed height */
+    height: 61vh;
+    /* 3. Replaced 'auto' with a fixed height */
     margin: 0;
     display: flex;
     flex: 1 1 clamp(18rem, 30vw, 26rem);
@@ -132,22 +135,22 @@ h2{
 
 
 .container-home {
-    box-shadow: 0 20px 15px rgba(0,0,0,0.45), 0 6px 15px rgba(0,0,0,0.28);
+    box-shadow: 0 20px 15px rgba(0, 0, 0, 0.45), 0 6px 15px rgba(0, 0, 0, 0.28);
     transform: scale(1.0);
     outline: 4px solid transparent;
     outline-offset: 2px;
     transition: outline-color 0.25s ease, outline-offset 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-    
+
 }
 
 .container-image:hover {
     transform: scale(1.05);
 }
 
-.container-home:hover{
+.container-home:hover {
     outline-color: rgb(255, 255, 255);
     outline-offset: 2px;
-    box-shadow: 0 20px 15px rgba(0,0,0,0.45), 0 6px 15px rgba(0,0,0,0.28), 0 0 18px rgba(255, 255, 255, 0.35), 0 0 42px rgba(255, 255, 255, 0.18);
+    box-shadow: 0 20px 15px rgba(0, 0, 0, 0.45), 0 6px 15px rgba(0, 0, 0, 0.28), 0 0 18px rgba(255, 255, 255, 0.35), 0 0 42px rgba(255, 255, 255, 0.18);
 }
 
 .container-home:nth-child(1) {
@@ -162,6 +165,10 @@ h2{
     animation-delay: 0.24s;
 }
 
+.container-home:nth-child(4) {
+    animation-delay: 0.36s;
+}
+
 .container-row,
 .containers-horizontal {
     display: flex;
@@ -170,9 +177,11 @@ h2{
     align-items: stretch;
     flex-wrap: nowrap;
     width: 100%;
-    height: auto; /* 4. Optional: You can change this from 1000px back to auto, as the children now dictate the height */
+    height: auto;
+    /* 4. Optional: You can change this from 1000px back to auto, as the children now dictate the height */
     margin: 0 auto;
-    padding: 10%;
+    padding: 10;
+    padding: 8% 10% 1% 10%;
 }
 
 .glass {
@@ -205,19 +214,20 @@ h2{
     z-index: 3;
     display: flex;
     align-items: center;
-    mask: linear-gradient(0,black, black, transparent);
+    mask: linear-gradient(0, black, black, transparent);
     backdrop-filter: blur(50px);
 }
 
 .container-caption {
     justify-content: center;
 }
+
 .container-caption span {
     position: relative;
     z-index: 4;
     font-size: 1.5rem;
     font-weight: 700;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
 .action__btns {
@@ -297,7 +307,55 @@ h2{
     }
 }
 
+.circular-buttons-container {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.circular-button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 4px solid transparent;
+    outline-offset: 2px;
+    box-shadow: 0 20px 15px rgba(0, 0, 0, 0.45), 0 6px 15px rgba(0, 0, 0, 0.28);
+    transition: outline-color 0.25s ease, outline-offset 0.25s ease, box-shadow 0.25s ease;
+}
+
+.button-icon-placeholder {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.circular-button:hover {
+    outline-color: rgb(255, 255, 255);
+    outline-offset: 2px;
+    /* box-shadow: 0 20px 15px rgba(0,0,0,0.45), 0 6px 15px rgba(0,0,0,0.28), 0 0 18px rgba(255, 255, 255, 0.35), 0 0 42px rgba(255, 255, 255, 0.18); */
+}
+
+.circular-button:active {
+    transform: scale(0.95);
+    outline-offset: 1px;
+}
+
+@media only screen and (max-width: 1180px){
+
+    .container-row{
+        padding: 12% 10% 1% 10%;
+    }
+
+}
+
 @media only screen and (max-width: 910px) {
+
     .container-row,
     .containers-horizontal {
         flex-wrap: wrap;
@@ -309,20 +367,47 @@ h2{
         width: 100%;
         height: 300px;
     }
+
+    .circular-button {
+        width: 60px;
+        height: 60px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .circular-buttons-container {
+        width: 100%;
+        justify-content: center;
+    }
+
+        .circular-buttons-container {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0.65rem 0.5rem calc(1.5rem + env(safe-area-inset-bottom));
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        z-index: 20;
+    }
 }
 
-@media only screen and (max-width: 650px){
+@media only screen and (max-width: 650px) {
     body {
         align-items: flex-start;
+        padding-bottom: 110px;
     }
 
     h1 {
-    font-size: 35px;
-}
+        font-size: 35px;
+    }
 
-h2{
-    font-size: 20px;
-}
+    h2 {
+        font-size: 20px;
+    }
 
     .container-row,
     .containers-horizontal {
@@ -347,5 +432,17 @@ h2{
     .image-container {
         flex: 0 1 calc(50% - 0.5rem);
         min-width: 150px;
+    }
+
+
+
+    .circular-button {
+        width: 58px;
+        height: 58px;
+        flex: 0 0 58px;
+    }
+
+    .button-icon-placeholder {
+        font-size: 1.35rem;
     }
 }
