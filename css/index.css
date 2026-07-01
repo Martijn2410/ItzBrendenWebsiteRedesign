@@ -403,7 +403,7 @@ main .container.glass .icon-container img {
 
     .container-row{
         padding: 12% 10% 1% 10%;
-        width: min(calc(100% - 4rem), 1100px);
+        width: 100%;
     }
 
 }
