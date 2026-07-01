@@ -6,6 +6,7 @@
 :root {
     --blur-amount: 50px;
     --border-radius: 15px;
+    --shadow-strength: 0 20px 15px rgba(0, 0, 0, 0.25), 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -85,6 +86,18 @@ h2 {
     text-shadow: 0px 0px 5px black;
 }
 
+p {
+    font-size: 18px;
+    color: white;
+    text-shadow: 0px 0px 5px black;
+}
+
+.doror {
+    text-decoration: none;
+    color: white;
+    text-shadow: 0px 0px 5px black;
+}
+
 .img-logo {
     width: 10%;
     height: 10%;
@@ -98,13 +111,49 @@ h2 {
 
 .container {
     width: fit-content;
-    padding: 8px 12px;
+    padding: 50px 50px;
     height: 400px;
     /* 1. Replaced 'auto' with a fixed height */
     margin: 200px auto;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-strength);
+}
+
+main .container.glass {
+    width: min(100%, 1100px);
+    height: auto;
+    margin: 150px auto 0;
+    display: flex;
+    gap: 2.5rem;
+    opacity: 0;
+    transform: translateY(2rem);
+    animation: container-home-fade-up 0.8s ease-out forwards;
+    will-change: transform, opacity;
+}
+
+main .container.glass .text-content {
+    flex: 1 1 auto;
+    max-width: 68ch;
+}
+
+main .container.glass .text-content p {
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+}
+
+main .container.glass .icon-container {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+main .container.glass .icon-container img {
+    width: clamp(170px, 30rem, 30rem);
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
 }
 
 .container-home {
@@ -135,7 +184,7 @@ h2 {
 
 
 .container-home {
-    box-shadow: 0 20px 15px rgba(0, 0, 0, 0.45), 0 6px 15px rgba(0, 0, 0, 0.28);
+    box-shadow: var(--shadow-strength);
     transform: scale(1.0);
     outline: 4px solid transparent;
     outline-offset: 2px;
@@ -150,7 +199,6 @@ h2 {
 .container-home:hover {
     outline-color: rgb(255, 255, 255);
     outline-offset: 2px;
-    box-shadow: 0 20px 15px rgba(0, 0, 0, 0.45), 0 6px 15px rgba(0, 0, 0, 0.28), 0 0 18px rgba(255, 255, 255, 0.35), 0 0 42px rgba(255, 255, 255, 0.18);
 }
 
 .container-home:nth-child(1) {
@@ -283,7 +331,6 @@ h2 {
 
 .image-container img:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
 @keyframes container-home-fade-up {
@@ -299,7 +346,8 @@ h2 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .container-home {
+    .container-home,
+    main .container.glass {
         opacity: 1;
         transform: none;
         animation: none;
@@ -326,8 +374,9 @@ h2 {
     justify-content: center;
     outline: 4px solid transparent;
     outline-offset: 2px;
-    box-shadow: 0 20px 15px rgba(0, 0, 0, 0.45), 0 6px 15px rgba(0, 0, 0, 0.28);
+    box-shadow: var(--shadow-strength);
     transition: outline-color 0.25s ease, outline-offset 0.25s ease, box-shadow 0.25s ease;
+    text-decoration: none;
 }
 
 .button-icon-placeholder {
@@ -348,13 +397,36 @@ h2 {
 
 @media only screen and (max-width: 1180px){
 
+    main .container.glass {
+        width: min(calc(100% - 4rem), 1100px);
+    }
+
     .container-row{
         padding: 12% 10% 1% 10%;
+        width: min(calc(100% - 4rem), 1100px);
     }
 
 }
 
 @media only screen and (max-width: 910px) {
+
+    main .container.glass {
+        flex-direction: column;
+        width: calc(100% - 1.5rem);
+        height: auto;
+        margin: 130px auto 0;
+        padding: 1.25rem;
+        gap: 1rem;
+    }
+
+    main .container.glass .text-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    main .container.glass .icon-container {
+        justify-content: center;
+    }
 
     .container-row,
     .containers-horizontal {

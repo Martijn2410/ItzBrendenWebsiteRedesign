@@ -1,5 +1,5 @@
-const header = document.querySelector(".portfolio-page .header");
-const artItems = document.querySelectorAll(".portfolio-page .image-containerNoEffect");
+const header = document.querySelector(".portfolio-page .header, .about-page .header");
+const artItems = document.querySelectorAll(".portfolio-page .image-containerNoEffect, .about-page .container");
 
 if (header && artItems.length > 0) {
   const desktopQuery = window.matchMedia("(min-width: 911px)");
